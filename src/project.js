@@ -46,10 +46,7 @@ function showformproject(){
 }
 export function displayProjects(){
     projectcontaier.textContent = ""
-    let project = loadData
-    if(project = null){
-        alert("asfd")
-    }
+    let project = loadData()
     project.forEach(element => {
         let x = document.createElement("div")
         let y = document.createElement("h2")
