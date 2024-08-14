@@ -2,6 +2,10 @@ let buttoncontainer = document.getElementById("buttons")
 let container = document.getElementById("formcontainer")
 let projectcontaier = document.getElementById("projectcontainer")
 let taskcontainer = document.getElementById("taskcontainer")
+var projects = loadData()
+if(projects == undefined){
+    projects = []
+}
 import { loadData, saveData } from "./storage"
 
 function newProject(){
@@ -45,12 +49,7 @@ function showformproject(){
 }
 export function displayProjects(){
     projectcontaier.textContent = ""
-    var projects = loadData()
-    if(projects == undefined){
-    projects = []
-    }
-    let project = loadData()
-    project.forEach(element => {
+    projects.forEach(element => {
         let x = document.createElement("div")
         let y = document.createElement("h2")
         y.textContent = element.name
