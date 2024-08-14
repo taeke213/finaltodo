@@ -68,7 +68,8 @@ if(projects.length == 0){
             name: name.value,
             desc:desc.value,
             date:date.value,
-            priority:prio.checked
+            priority:prio.checked,
+            completed:false
         }
         for(let i = 0; i < projects.length; i++){
             if(projects[i].name == cont){

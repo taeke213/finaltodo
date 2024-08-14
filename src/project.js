@@ -157,19 +157,32 @@ function displayTasks(x){
         del.textContent = "delete"
         del.style.display = "none"
         icon.addEventListener(("click"), () => {
-            if(o.style.textDecoration != "line-through"){
+            if(!element.completed){
             o.style.textDecoration = "line-through"
             k.style.textDecoration = "line-through"
             r.style.textDecoration = "line-through"
             del.style.display = "inline"
             l.style.boxShadow = "0 0 10px 3px rgb(34, 143, 38)"
+            element.completed = true
+            saveData(projects)
         }
         else{
+            if(element.priority){
             o.style.textDecoration = "none"
             k.style.textDecoration = "none"
             r.style.textDecoration = "none"
             del.style.display = "none"
             l.style.boxShadow = "0 0 10px 3px rgb(5, 14, 99)"
+            }
+            else{
+                o.style.textDecoration = "none"
+                k.style.textDecoration = "none"
+                r.style.textDecoration = "none"
+                del.style.display = "none"
+                l.style.boxShadow = "0 0 10px 3px rgb(156, 14, 14)"
+            }
+            element.completed = false
+            saveData(projects)
         }
         })
         del.addEventListener(("click"), () => {
@@ -179,6 +192,13 @@ function displayTasks(x){
         })
         l.appendChild(icon)
         l.appendChild(del)
+        if(element.completed){
+            o.style.textDecoration = "line-through"
+            k.style.textDecoration = "line-through"
+            r.style.textDecoration = "line-through"
+            del.style.display = "inline"
+            l.style.boxShadow = "0 0 10px 3px rgb(34, 143, 38)"
+        }
         taskcontainer.appendChild(l)
     })
 }
