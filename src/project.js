@@ -3,7 +3,7 @@ let container = document.getElementById("formcontainer")
 let projectcontaier = document.getElementById("projectcontainer")
 let taskcontainer = document.getElementById("taskcontainer")
 var projects = loadData()
-if(projects == undefined){
+if(projects == null){
     projects = []
 }
 import { loadData, saveData } from "./storage"
